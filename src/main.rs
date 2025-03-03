@@ -1,55 +1,59 @@
 fn main() {
-    // learn_01_hello_world();
-    // learn_02_variable();
-    learn_03_data_type();
+    learn_04_data_type_number();
 }
 
-#[allow(dead_code)]
-fn learn_01_hello_world() {
-    println!("Hello, world!");
-}
+fn learn_04_data_type_number() {
+    // tipe data default integer adalah i32
+    // tipe data default float adalah f64
 
-#[allow(dead_code)]
-fn learn_02_variable() {
-    // menggunakan let untuk mendeklarasikan variabel bersifat immutable (tidak bisa diubah)
-    let x = 5;
-    let y = 10;
-    let z = x + y;
-    // x = 10; // error: cannot assign twice to immutable variable
-    println!("The value of x is: {} and y is: {}", x, y);
-    println!("The value of z is: {} + {} = {}", x, y, z);
+    // Integer
+    let a: i8 = 127;
+    let b: i16 = 32767;
+    let c: i32 = 2147483647;
+    let d: i64 = 9223372036854775807;
+    let e: i128 = 170141183460469231731687303715884105727;
+    let f: isize = 9223372036854775807;
+    let g: u8 = 255;
+    let h: u16 = 65535;
+    let i: u32 = 4294967295;
+    let j: u64 = 18446744073709551615;
+    let k: u128 = 340282366920938463463374607431768211455;
+    let l: usize = 18446744073709551615;
 
-    // menggunakan let mut untuk mendeklarasikan variabel bersifat mutable (bisa diubah)
-    let mut a = 5;
-    println!("The initial value of a is: {}", a);
-    a = 10;
-    println!("The new value of a is: {}", a);
+    // Float
+    let m: f32 = 3.40282346638528859811704183484516925440;
+    let n: f64 = 1.797693134862315708145274237317043567981e308;
 
-    //static typing
-    let mut name = "Ryo";
-    println!("My name is {}", name);
-    name = "Ryo Kf";
-    // name = 20; // error: expected `&str`, found integer
-    println!("My name now is {}", name);
+    println!("nilai maksimum i8: {}", a);
+    println!("nilai maksimum i16: {}", b);
+    println!("nilai maksimum i32: {}", c);
+    println!("nilai maksimum i64: {}", d);
+    println!("nilai maksimum i128: {}", e);
+    println!("nilai maksimum isize: {}", f);
+    println!("nilai maksimum u8: {}", g);
+    println!("nilai maksimum u16: {}", h);
+    println!("nilai maksimum u32: {}", i);
+    println!("nilai maksimum u64: {}", j);
+    println!("nilai maksimum u128: {}", k);
+    println!("nilai maksimum usize: {}", l);
+    println!("nilai maksimum f32: {}", m);
+    println!("nilai maksimum f64: {} \n", n);
 
-    // shadowing (menggunakan nama variabel yang sama)
-    let language = "Rust";
-    print!("I learned {} ", language);
-    let language = 1;
-    println!("in {} year", language);
+    // konversi tipe data
+    println!("contoh konversi tipe data yang valid");
+    let o: i32 = 10;
+    println!("nilai o dengan tipe data i32: {}", o);
+    let p: f64 = o as f64;
+    println!("nilai o dengan tipe data f64: {}", p);
+    
+    println!("");
 
-
-}
-
-#[allow(dead_code)]
-fn learn_03_data_type() {
-    // tipe data bisa diatur secara eksplisit
-    let a: i32 = 5; // i32 adalah tipe data integer 32-bit
-    println!("The value of a is: {}", a);
-
-    // tipe data bisa diatur secara implisit
-    let b = 10; // Rust akan menentukan tipe data dari nilai yang diberikan
-    println!("The value of b is: {}", b);
+    // konversi tipe data yang tidak valid menyebabkan integer overflow
+    println!("contoh konversi tipe data yang tidak valid");
+    let q: i32 = 1000;
+    println!("nilai q dengan tipe data i32: {}", q);
+    let r: i8 = q as i8;
+    println!("nilai q dengan tipe data i8: {}", r); //nilai r menjadi -24
 }
 
 
