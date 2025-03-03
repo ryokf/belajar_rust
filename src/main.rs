@@ -1,5 +1,7 @@
 fn main() {
-    learn_02_variable();
+    // learn_01_hello_world();
+    // learn_02_variable();
+    learn_03_data_type();
 }
 
 #[allow(dead_code)]
@@ -38,5 +40,17 @@ fn learn_02_variable() {
 
 
 }
+
+#[allow(dead_code)]
+fn learn_03_data_type() {
+    // tipe data bisa diatur secara eksplisit
+    let a: i32 = 5; // i32 adalah tipe data integer 32-bit
+    println!("The value of a is: {}", a);
+
+    // tipe data bisa diatur secara implisit
+    let b = 10; // Rust akan menentukan tipe data dari nilai yang diberikan
+    println!("The value of b is: {}", b);
+}
+
 
 
