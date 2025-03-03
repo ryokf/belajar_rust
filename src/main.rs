@@ -1,14 +1,15 @@
 fn main() {
-    learn_05_data_type_boolean();
+    learn_06_data_type_char();
 }
 
-fn learn_05_data_type_boolean() {
-    // tipe data boolean hanya memiliki dua nilai, yaitu true dan false
-    // deklarasi tipe data boolean secara implisit
-    let t = true;
-    // deklarasi tipe data boolean secara eksplisit
-    let f: bool = false;
-    println!("t = {} \nf = {}", t, f);
+fn learn_06_data_type_char() {
+    // tipe data char
+    let c = 'z';
+    let z = 'ℤ';
+    let heart_eyed_cat = '😻';
+    println!("c: {}", c);
+    println!("z: {}", z);
+    println!("heart_eyed_cat: {}", heart_eyed_cat);
 }
 
 
