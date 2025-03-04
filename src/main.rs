@@ -1,16 +1,18 @@
 fn main() {
-    learn_09_constant();
+    learn_10_memory_management();
 }
 
-fn learn_09_constant() {
-    // constant selalu immutable
-    // constant harus di-annotasi dengan tipe data
-    // penamaan constant menggunakan huruf kapital dan dipisa dengan underscore
-    const MAX_POINTS: i32 = 100000;
-    // const MIN_POINTS = 0; // error: cannot determine a type for this constant
-    println!("The value of MAX_POINTS is: {}", MAX_POINTS);
-    // MAX_POINTS = 100_001; // error: cannot assign to this expression
+fn learn_10_memory_management() {
+    // rust membagi memory menjadi 2 bagian, stack dan heap
+    // stack digunakan untuk menyimpan data yang ukurannya diketahui pada saat compile time
+    // heap digunakan untuk menyimpan data yang ukurannya tidak diketahui pada saat compile time
+    // stack lebih cepat dibandingkan heap karena stack menggunakan LIFO (Last In First Out) sedangkan heap menggunakan pointer
+    // stack memiliki ukuran yang terbatas, sedangkan heap tidak terbatas
     
+    // rust langsung menghapus data yang disimpan di stack ketika data tersebut tidak digunakan lagi
+    // sedangkan data yang disimpan di heap tidak langsung dihapus ketika data tersebut tidak digunakan lagi
+    // data yang disimpan di heap akan dihapus ketika pointer yang menunjuk ke data tersebut dihapus
+    // pointer yang menunjuk ke data di heap disimpan di stack
 }
 
 
