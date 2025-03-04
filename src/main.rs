@@ -1,35 +1,30 @@
 fn main() {
-    learn_07_data_type_tuple();
+    learn_08_data_type_array();
 }
 
-fn learn_07_data_type_tuple() {
-    // tipe data tuple
-    let data: (i32, f64, bool) = (500, 6.4, true);
-    println!("data: {:?}", data);
+fn learn_08_data_type_array() {
+    // tipe data array
+    // array adalah kumpulan data yang memiliki tipe data yang sama
+    let a = [1, 2, 3, 4, 5];
+    println!("a: {:?}", a);
 
-    let a = data.0;
-    let b = data.1;
-    let c = data.2;
-    println!("a: {}", a);
-    println!("b: {}", b);
-    println!("c: {}", c);
+    // akses data array
+    let first = a[0];
+    let second = a[1];
+    println!("first: {}, second: {}", first, second);
 
-    // destructuring
-    let (x, y, z) = data;
-    println!("\nhasil destructuring");
-    println!("x: {}", x);
-    println!("y: {}", y);
-    println!("z: {}", z);
+    // panjang array
+    // panjang array bertipe data usize karena maksimal panjang array sesuai dengan ukuran memori di sistem operasi
+    let len = a.len();
+    println!("len: {}", len);
 
-    // unit
-    // unit adalah tuple yang tidak memiliki elemen
-    // biasanya digunakan untuk mengembalikan nilai dari fungsi yang tidak mengembalikan nilai
-    let unit: () = ();
-    fn unit_func() -> () {
-        println!("unit function");
-    }
-    println!("\nnilai dari fungsi unit_func(): {:?}", unit_func());
-    println!("\nnilai dari variabel unit: {:?}", unit);
+    // array 2 dimensi
+    let b: [[i32; 2]; 3] = [
+        [1, 2],
+        [3, 4],
+        [5, 6]
+    ];
+    println!("b: {:?}", b);
 }
 
 
