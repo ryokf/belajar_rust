@@ -1,28 +1,40 @@
 fn main() {
-    learn_12_ownership();
+    learn_13_if_expression();
 }
 
-fn learn_12_ownership() {
-    // Ownership
-    // rust memiliki konsep memory management yang unik, yaitu ownership
-    // ownership adalah konsep yang memungkinkan rust untuk memastikan bahwa memory yang digunakan
-    // tidak akan bocor atau tidak terjadi memory leak
+fn learn_13_if_expression() {
+    let score = 40;
+    // if expression
+    if score < 50 {
+        println!("your grade is E");
+    } else if score < 60 {
+        println!(" your grade is D");
+    } else if score < 70 {
+        println!(" your grade is C");
+    } else if score < 80 {
+        println!(" your grade is B");
+    } else if score < 90 {
+        println!(" your grade is A");
+    } else {
+        println!("your grade undefined");
+    }
 
-    // contoh pada penyimpanan data pada stack
-    let x = 5;
-    let y = x; // copy value, y mengambil nilai dari x tidak terjadi ownership movement
-    println!("x = {}, y = {}", x, y); // sehingga variabel x masih bisa digunakan
+    // if expression in let statement
+    // rust dapat mengembalikan nilai dari if expression
+    let grade = if score < 50 {
+        "E"
+    } else if score < 60 {
+        "D"
+    } else if score < 70 {
+        "C"
+    } else if score < 80 {
+        "B"
+    } else if score < 90 {
+        "A"
+    } else {
+        "Undefined"
+    };
 
-    // contoh pada penyimpanan data pada heap
-    let s1 = String::from("hello");
-    let s2 = s1; // ownership movement, s2 mengambil alamat memory s1
-    // println!("s1 = {}, s2 = {}", s1, s2); // error, karena s1 sudah tidak valid lagi, karena s2 sudah mengambil alamat memory s1
-    println!("nilai s2 = {}", s2);
-
-    // jika ingin mengcopy data pada heap, maka gunakan clone
-    let s3 = s2.clone(); // tidak terjadi ownership movement
-    println!("s2 = {}, s3 = {}", s2, s3);
+    println!("your grade is {}", grade);
+    
 }
-
-
-
