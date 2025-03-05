@@ -1,22 +1,26 @@
 fn main() {
-    learn_14_for_loop();
+    learn_15_function();
 }
 
-fn learn_14_for_loop() {
-    let arr = [10, 20, 30, 40, 50];
-    
-    // for loop bisa digunakan untuk mengiterasi array
-    for i in arr {
-        println!("iterasi array : {}", i);
+fn learn_15_function() {
+    // Function
+    // penulisan nama function di rust menggunakan snake_case
+    fn nama_function() {
+        println!("Hello World");
     }
+    nama_function();
 
-    println!();
-
-    // rust memiliki tipe data Range
-    // Range adalah tipe data yang berisi rentang angka
-    // Range bisa digunakan untuk mengiterasi angka
-    let range = 1..6;
-    for i in range {
-        println!("iterasi menggunakan range: {}", i);
+    // Function dengan parameter
+    // parameter harus menuliskan tipe data
+    fn say_hello(nama: &str) {
+        println!("Hello {}", nama);
     }
+    say_hello("Rust");
+
+    // Function dengan return value
+    fn tambah(a: i32, b: i32) -> i32 {
+        a + b // tidak perlu menuliskan kata return
+    }
+    let hasil = tambah(10, 20);
+    println!("Hasil tambah: {}", hasil);
 }
