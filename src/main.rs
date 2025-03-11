@@ -1,29 +1,47 @@
 fn main() {
-    learn_18_slice();
+    learn_19_struct();
 }
 
-fn learn_18_slice() {
-    let array = [1,2,3,4,5,6,7,8,9,10];
+fn learn_19_struct() {
+    struct Person {
+        name: String,
+        age: i8,
+        is_male: bool,
+    }
 
-    let range = &array[1..4];
-    println!("{:?}", range);
+    let person1 = Person {
+        name: String::from("John"),
+        age: 25,
+        is_male: true,
+    };
 
-    let range_from = &array[6..];
-    println!("{:?}", range_from);
+    println!("Name: {}", person1.name);
+    println!("Age: {}", person1.age);
+    println!("Is male: {} \n", person1.is_male);
 
-    let range_full = &array[..];
-    println!("{:?}", range_full);
+    // struct dengan function
+    fn print_person(person: &Person) {
+        println!("data dari print_person");
+        println!("Name: {}", person.name);
+        println!("Age: {}", person.age);
+        println!("Is male: {} \n", person.is_male);
+    }
+    print_person(&person1);
 
-    let range_inclusive = &array[1..=4];
-    println!("{:?}", range_inclusive);
+    //shorthand
+    let name = String::from("Doe");
+    let age = 30;
+    let is_male = true;
+    let person2 = Person { name, age, is_male };
+    print_person(&person2);
 
-    let range_to = &array[..4];
-    println!("{:?}", range_to);
+    // struct update syntax
+    let person3 = Person{..person1};
+    print_person(&person3);
+    // print!("Name: {}", person1.name); // error: value borrowed here after move
 
-    let range_to_inclusive = &array[..=4];
-    println!("{:?}", range_to_inclusive);
-
-    let name = String::from("Hello, World!");
-    let slice = &name[0..5];
-    println!("{:?}", slice);
+    // struct tuple
+    struct Color(i32, i32, i32);
+    let black = Color(0, 0, 0);
+    println!("Color: {}, {}, {}", black.0, black.1, black.2);
 }
