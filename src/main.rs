@@ -1,47 +1,25 @@
 fn main() {
-    learn_19_struct();
+    learn_20_method();
 }
 
-fn learn_19_struct() {
-    struct Person {
+fn learn_20_method() {
+    struct Person{
         name: String,
-        age: i8,
-        is_male: bool,
+        age: u8,
     }
 
-    let person1 = Person {
-        name: String::from("John"),
-        age: 25,
-        is_male: true,
-    };
+    impl Person {
+        fn say_hello(&self) {
+            println!("Hello, my name is {}, and I am {} years old", self.name, self.age);
+        }
 
-    println!("Name: {}", person1.name);
-    println!("Age: {}", person1.age);
-    println!("Is male: {} \n", person1.is_male);
-
-    // struct dengan function
-    fn print_person(person: &Person) {
-        println!("data dari print_person");
-        println!("Name: {}", person.name);
-        println!("Age: {}", person.age);
-        println!("Is male: {} \n", person.is_male);
+        // static / associated method
+        fn running(){
+            println!("person is running");
+        }
     }
-    print_person(&person1);
 
-    //shorthand
-    let name = String::from("Doe");
-    let age = 30;
-    let is_male = true;
-    let person2 = Person { name, age, is_male };
-    print_person(&person2);
-
-    // struct update syntax
-    let person3 = Person{..person1};
-    print_person(&person3);
-    // print!("Name: {}", person1.name); // error: value borrowed here after move
-
-    // struct tuple
-    struct Color(i32, i32, i32);
-    let black = Color(0, 0, 0);
-    println!("Color: {}, {}, {}", black.0, black.1, black.2);
+    let p = Person {name: "John".to_string(), age: 20};
+    p.say_hello();
+    Person::running();
 }
