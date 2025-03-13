@@ -1,5 +1,6 @@
 mod user;
 mod product;
+mod other;
 
 use user::*;
 use product::Product;
